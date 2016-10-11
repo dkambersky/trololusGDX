@@ -1,4 +1,4 @@
-package com.github.trollface_studios.Screens;
+package com.github.trollface_studios.screens;
 
 public class ServerBrowserScreen extends TrololusScreen{
 

@@ -1,7 +1,7 @@
-package com.github.trollface_studios.Screens.MenuScreens;
+package com.github.trollface_studios.screens.MenuScreens;
 
-import com.github.trollface_studios.Screens.TrololusScreen;
-import com.github.trollface_studios.Screens.MenuScreens.Components.Button;
+import com.github.trollface_studios.screens.TrololusScreen;
+import com.github.trollface_studios.screens.MenuScreens.Components.Button;
 
 public class MenuScreen extends TrololusScreen{
 	private Button[] buttons;
