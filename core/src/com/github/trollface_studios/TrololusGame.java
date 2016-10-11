@@ -1,19 +1,27 @@
 package com.github.trollface_studios;
 
-import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.github.trollface_studios.Screens.MenuScreens.MainMenuScreen;
 
-public class TrololusGame extends ApplicationAdapter {
+public class TrololusGame extends Game {
 	SpriteBatch batch;
 	Texture img;
 	
+	static TrololusGame self;
+	public static TrololusGame GetSelf(){
+		return self;
+	}
+	
 	@Override
 	public void create () {
+		self = this;
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
+		setScreen(new MainMenuScreen());
 	}
 
 	@Override
