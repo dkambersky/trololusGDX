@@ -1,4 +1,4 @@
-package com.github.trollface_studios.screens.MenuScreens.Components;
+package com.github.trollface_studios.screens.menuScreens.components;
 
 public class Button {
 
