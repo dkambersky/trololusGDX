@@ -1,28 +1,24 @@
 package com.github.trollface_studios.input;
 
 import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.Input.Keys;
 
-public class TrololusInputProcessor implements InputProcessor {
+public class StateInputProcessor implements InputProcessor {
 
 	@Override
 	public boolean keyDown(int keycode) {
-
+		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean keyUp(int keycode) {
-		switch (keycode) {
-		case Keys.ESCAPE:
-			System.exit(0);
-
-		}
+		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean keyTyped(char character) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
