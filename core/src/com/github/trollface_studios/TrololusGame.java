@@ -10,24 +10,26 @@ import com.github.trollface_studios.input.TrololusInputProcessor;
 import com.github.trollface_studios.screens.menuScreens.MainMenuScreen;
 
 public class TrololusGame extends Game {
-	SpriteBatch batch;
+	TrololusBatch batch;
 	Texture img;
-
-	static InputMultiplexer multiplexer;
+	InputMultiplexer multiplexer;
 	static TrololusGame self;
 
 	public static TrololusGame GetSelf() {
 		return self;
 	}
 
-	public static InputMultiplexer getInput() {
+	public InputMultiplexer getInput() {
 		return multiplexer;
 	}
-
+	
+	public TrololusBatch getBatch() {
+		return batch;
+	}
 	@Override
 	public void create() {
 		self = this;
-		batch = new SpriteBatch();
+		batch = new TrololusBatch();
 		img = new Texture("badlogic.jpg");
 		multiplexer = new InputMultiplexer();
 		multiplexer.addProcessor(new TrololusInputProcessor());
@@ -52,4 +54,6 @@ public class TrololusGame extends Game {
 		batch.dispose();
 		img.dispose();
 	}
+
+
 }

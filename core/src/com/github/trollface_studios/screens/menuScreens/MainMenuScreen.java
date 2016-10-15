@@ -8,7 +8,7 @@ import com.github.trollface_studios.input.StateInputProcessor;
 public class MainMenuScreen extends MenuScreen {
 
 	public MainMenuScreen() {
-		TrololusGame.getInput().addProcessor(new StateInputProcessor() {
+		TrololusGame.GetSelf().getInput().addProcessor(new StateInputProcessor() {
 			@Override
 			public boolean keyDown(int keycode) {
 				if (keycode == Keys.SPACE) {
