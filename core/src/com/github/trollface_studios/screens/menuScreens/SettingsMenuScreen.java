@@ -4,20 +4,17 @@ public class SettingsMenuScreen extends MenuScreen {
 
 	@Override
 	public void update(float delta) {
-		// TODO Auto-generated method stub
-		
+		super.update(delta);
 	}
-
+	
 	@Override
-	public void draw(float delta) {
-		// TODO Auto-generated method stub
-		
+	public void draw(float delta){
+		super.draw(delta);
 	}
-
+	
 	@Override
-	public void menuDispose() {
-		// TODO Auto-generated method stub
-		
+	public void dispose(){
+		super.dispose();
 	}
 
 

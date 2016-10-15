@@ -2,12 +2,15 @@ package com.github.trollface_studios.screens.menuScreens.components;
 
 import java.util.function.Consumer;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Disposable;
 import com.github.trollface_studios.GameComponent;
 import com.github.trollface_studios.TrololusGame;
+import com.github.trollface_studios.input.InputMaster;
 
 public class Button implements GameComponent, Disposable {
 
@@ -25,21 +28,11 @@ public class Button implements GameComponent, Disposable {
 		init(clickAction, position, new Texture(texturePath));
 	}
 	
-	public Button(Consumer<Void> clickAction, Vector2 position, Texture texture){
-		init(clickAction, new Rectangle(position.x, position.y, texture.getWidth(), texture.getHeight()), texture);
-	}
-	
-	public Button(Consumer<Void> clickAction, Vector2 position, String texturePath){
-		textureDisposeFlag = true;
-		Texture img = new Texture(texturePath);
-		init(clickAction, new Rectangle(position.x, position.y, img.getWidth(), img.getHeight()), img);
-	}
-	
 	public Button(Consumer<Void> clickAction, float x, float y, Texture texture){
 		init(clickAction, new Rectangle(x, y, texture.getWidth(), texture.getHeight()), texture);
 	}
 	
-	public Button(Consumer<Void> clickAction,float x, float y, String texturePath){
+	public Button(Consumer<Void> clickAction, float x, float y, String texturePath){
 		textureDisposeFlag = true;
 		Texture img = new Texture(texturePath);
 		init(clickAction, new Rectangle(x, y, img.getWidth(), img.getHeight()), img);
@@ -58,13 +51,12 @@ public class Button implements GameComponent, Disposable {
 
 	@Override
 	public void update(float delta) {
+		if (Gdx.input.isButtonPressed(0)&&position.contains(InputMaster.getMousePosition())) clickAction.accept(null);
 		//TODO
 	}
 
 	@Override
 	public void dispose() {
-		if (textureDisposeFlag) {
-			texture.dispose();
-		}
+		if (textureDisposeFlag) texture.dispose();
 	}
 }

@@ -2,9 +2,10 @@ package com.github.trollface_studios.screens.menuScreens;
 
 import com.badlogic.gdx.Screen;
 import com.github.trollface_studios.TrololusGame;
+import com.github.trollface_studios.screens.TrololusScreen;
 import com.github.trollface_studios.screens.menuScreens.components.Button;
 
-public abstract class MenuScreen implements Screen {
+public abstract class MenuScreen extends TrololusScreen {
 	
 	protected Button[] buttons;
 
@@ -14,33 +15,24 @@ public abstract class MenuScreen implements Screen {
 		
 	}
 
-	@Override
-	public final void render(float delta) {
-		this.update(delta);
+	public void update(float delta){
 		for (Button button : buttons) {
 			button.update(delta);
 		}
-		TrololusGame.GetSelf().getBatch().begin();
-		this.draw(delta);
+	};
+
+	public void draw(float delta){
 		for (Button button : buttons) {
 			button.draw(delta);
 		}
-		TrololusGame.GetSelf().getBatch().end();
-	}
-
-	public abstract void update(float delta);
-
-	public abstract void draw(float delta);
+	};
 	
 	@Override
-	public final void dispose(){
+	public void dispose(){
 		for (Button button : buttons) {
 			button.dispose();
-			menuDispose();
 		}
 	}
-	
-	public abstract void menuDispose();
 	
 	@Override
 	public void resize(int width, int height) {

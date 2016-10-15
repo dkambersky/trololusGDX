@@ -27,7 +27,7 @@ public class MainMenuScreen extends MenuScreen {
 		
 		buttons = new Button[]{
 			new Button(
-				a ->TrololusGame.GetSelf().setScreen(new SettingsMenuScreen()),
+				a ->{TrololusGame.GetSelf().setScreen(new PauseMenuScreen(this));},
 				20,
 				20,
 				"button1.png"), 
@@ -38,15 +38,18 @@ public class MainMenuScreen extends MenuScreen {
 	public void update(float delta) {
 		if (Gdx.input.isKeyJustPressed(Keys.C))
 			System.out.println("Or there's this, ugly, way");
+		super.update(delta);
 	}
 	
 	@Override
 	public void draw(float delta){
 		TrololusGame.GetSelf().getBatch().draw(img, 0, 0);
+		super.draw(delta);
 	}
 	
 	@Override
-	public void menuDispose(){
+	public void dispose(){
+		super.dispose();
 		img.dispose();
 	}
 }
