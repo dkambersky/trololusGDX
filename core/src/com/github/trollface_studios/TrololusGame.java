@@ -11,7 +11,6 @@ import com.github.trollface_studios.screens.menuScreens.MainMenuScreen;
 
 public class TrololusGame extends Game {
 	TrololusBatch batch;
-	Texture img;
 	InputMultiplexer multiplexer;
 	static TrololusGame self;
 
@@ -30,7 +29,6 @@ public class TrololusGame extends Game {
 	public void create() {
 		self = this;
 		batch = new TrololusBatch();
-		img = new Texture("badlogic.jpg");
 		multiplexer = new InputMultiplexer();
 		multiplexer.addProcessor(new TrololusInputProcessor());
 		Gdx.input.setInputProcessor(multiplexer);
@@ -40,19 +38,14 @@ public class TrololusGame extends Game {
 
 	@Override
 	public void render() {
-		super.render();
-		Gdx.gl.glClearColor(1, 0, 0, 1);
+		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		batch.draw(img, 0, 0);
-
-		batch.end();
+		super.render();
 	}
 
 	@Override
 	public void dispose() {
 		batch.dispose();
-		img.dispose();
 	}
 
 

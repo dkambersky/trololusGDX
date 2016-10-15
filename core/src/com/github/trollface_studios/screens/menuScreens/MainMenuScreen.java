@@ -2,11 +2,16 @@ package com.github.trollface_studios.screens.menuScreens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Rectangle;
 import com.github.trollface_studios.TrololusGame;
 import com.github.trollface_studios.input.StateInputProcessor;
+import com.github.trollface_studios.screens.menuScreens.components.Button;
 
 public class MainMenuScreen extends MenuScreen {
 
+	Texture img = new Texture("badlogic.jpg");
+	
 	public MainMenuScreen() {
 		TrololusGame.GetSelf().getInput().addProcessor(new StateInputProcessor() {
 			@Override
@@ -19,10 +24,29 @@ public class MainMenuScreen extends MenuScreen {
 			}
 
 		});
+		
+		buttons = new Button[]{
+			new Button(
+				a ->TrololusGame.GetSelf().setScreen(new SettingsMenuScreen()),
+				20,
+				20,
+				"button1.png"), 
+		};
 	}
 
+	@Override
 	public void update(float delta) {
 		if (Gdx.input.isKeyJustPressed(Keys.C))
 			System.out.println("Or there's this, ugly, way");
+	}
+	
+	@Override
+	public void draw(float delta){
+		TrololusGame.GetSelf().getBatch().draw(img, 0, 0);
+	}
+	
+	@Override
+	public void menuDispose(){
+		img.dispose();
 	}
 }
