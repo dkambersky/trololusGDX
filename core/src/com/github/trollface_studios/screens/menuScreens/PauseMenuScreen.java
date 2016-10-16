@@ -1,5 +1,7 @@
 package com.github.trollface_studios.screens.menuScreens;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
 import com.github.trollface_studios.TrololusGame;
 import com.github.trollface_studios.screens.TrololusScreen;
 import com.github.trollface_studios.screens.menuScreens.components.Button;
@@ -24,6 +26,7 @@ public class PauseMenuScreen extends MenuScreen  {
 	@Override
 	public void draw(float delta) {
 		originScreen.draw(0);
+		//TODO draw filter here
 		super.draw(delta);
 	}
 

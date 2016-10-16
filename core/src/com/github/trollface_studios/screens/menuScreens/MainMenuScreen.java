@@ -10,7 +10,7 @@ import com.github.trollface_studios.screens.menuScreens.components.Button;
 
 public class MainMenuScreen extends MenuScreen {
 
-	Texture img = new Texture("badlogic.jpg");
+	Texture img = new Texture("fuzzydice.png");
 	
 	public MainMenuScreen() {
 		TrololusGame.GetSelf().getInput().addProcessor(new StateInputProcessor() {

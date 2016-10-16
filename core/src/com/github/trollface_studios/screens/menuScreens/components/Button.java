@@ -3,10 +3,8 @@ package com.github.trollface_studios.screens.menuScreens.components;
 import java.util.function.Consumer;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Disposable;
 import com.github.trollface_studios.GameComponent;
 import com.github.trollface_studios.TrololusGame;
@@ -18,6 +16,7 @@ public class Button implements GameComponent, Disposable {
 	Rectangle position;
 	Consumer<Void> clickAction;
 	boolean textureDisposeFlag = false;
+	int hotkey = Integer.MIN_VALUE;
 	
 	public Button(Consumer<Void> clickAction, Rectangle position, Texture texture){
 		init(clickAction, position, texture);
@@ -51,7 +50,7 @@ public class Button implements GameComponent, Disposable {
 
 	@Override
 	public void update(float delta) {
-		if (Gdx.input.isButtonPressed(0)&&position.contains(InputMaster.getMousePosition())) clickAction.accept(null);
+		if ((Gdx.input.isButtonPressed(0)&&position.contains(InputMaster.getMousePosition()))||(hotkey!=Integer.MIN_VALUE&&Gdx.input.isKeyJustPressed(hotkey))) clickAction.accept(null);
 		//TODO
 	}
 
